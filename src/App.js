@@ -84,7 +84,7 @@ function App() {
       headers: { 'Content-Type': 'application/json', Authorization: token },
       body: JSON.stringify({ title, description })
     });
-    const newTask = await res.json();
+    await res.json();
     setTitle('');
     setDescription('');
   };
