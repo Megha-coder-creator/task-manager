@@ -23,7 +23,10 @@ function App() {
         headers: { Authorization: token }
       })
         .then(res => res.json())
-        .then(data => setTasks(Array.isArray(data) ? data : []));
+        .then(data => {
+          console.log("Tasks:" , data);
+          setTasks(Array.isArray(data) ? data : []);
+        })
     }
 
     // Real-time updates
