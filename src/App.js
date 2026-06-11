@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import './App.css';
 
-const API = 'http://localhost:5000/api';
-const socket = io('http://localhost:5000');
+const API = 'https://task-manager-backend-74qy.onrender.com/api';
+const socket = io('https://task-manager-backend-74qy.onrender.com');
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -143,7 +143,7 @@ function App() {
       </div>
       <div className="tasks">
         {tasks.length === 0 && <p className="empty">no tasks yet... add something lovely 🌷</p>}
-        {tasks.map(task => (
+        {tasks.filter(task => task).map(task => (
           <div key={task._id} className={`task ${task.status}`}>
             <h3>{task.title}</h3>
             <p>{task.description}</p>
